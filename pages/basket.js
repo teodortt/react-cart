@@ -10,15 +10,15 @@ export default function Basket(options) {
 
     const router = useRouter()
 
+    const config = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            "X-Requested-With": "XMLHttpRequest",
+        }
+    };
+
     const basketList = () => {
-        // console.log(e)
-        const config = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                "X-Requested-With": "XMLHttpRequest",
-            }
-        };
 
         axios.get(`https://cors-anywhere.herokuapp.com/https://teodor-osyx280w3ewf.runkit.sh/basket`, config)
             .then((response) => {
@@ -30,13 +30,6 @@ export default function Basket(options) {
 
     const productList = () => {
         // console.log(e)
-        const config = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                "X-Requested-With": "XMLHttpRequest",
-            }
-        };
 
         axios.get(`https://cors-anywhere.herokuapp.com/https://teodor-osyx280w3ewf.runkit.sh/products`, config)
             .then((response) => {

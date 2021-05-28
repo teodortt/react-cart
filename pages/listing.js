@@ -52,12 +52,14 @@ export default function Listing(options) {
     }, [added, removed])
 
     function getAll() {
+        // axios.get('https://cors-anywhere.herokuapp.com/https://teodor-osyx280w3ewf.runkit.sh/products', config)
         axios.get('https://teodor-osyx280w3ewf.runkit.sh/products', config)
             .then(response => setProducts(response.data))
             .then(() => getCounter());
     }
 
     function getCounter() {
+        // axios.get('https://cors-anywhere.herokuapp.com/https://teodor-osyx280w3ewf.runkit.sh/basket', config)
         axios.get('https://teodor-osyx280w3ewf.runkit.sh/basket', config)
             .then(response => setCounter(response.data.items.map((res) => (res.id))));
     }
