@@ -3,44 +3,12 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useRouter } from 'next/router'
+import * as Mui from '@material-ui/core'
 
 export default function Home() {
 
-  const initialFormState = { id: null, name: '', slug: '', material: '', color: '', description: '', price: '', currency: '', image: '' }
-  const [product, setProduct] = useState(initialFormState)
-
-  const handleInputChange = event => {
-    const { name, value } = event.target
-
-    setProduct({ ...product, [name]: value })
-  }
-
-  function onSubmit(e) {
-    e.preventDefault();
-
-    const exercise = {
-      username: this.state.username,
-      description: this.state.description,
-      duration: this.state.duration,
-      date: this.state.date,
-    };
-
-    fetch('http://localhost:5000/exercises/add', {
-      method: "POST",
-      body: JSON.stringify(exercise),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-      .then(result => {
-        // do something with the result
-        console.log("Completed with result:", result);
-      });
-
-    console.log(exercise);
-
-    // window.location = '/';
-  }
+  const router = useRouter()
 
 
   return (
@@ -51,7 +19,10 @@ export default function Home() {
 
       <main>
 
-
+        <div className="container">
+          <Mui.Button onClick={() => router.push('/listing')} variant="contained" color="primary">Go To Listings</Mui.Button>
+          <Mui.Button onClick={() => router.push('/basket')} variant="contained" color="primary">Go To Basket</Mui.Button>
+        </div>
 
       </main>
 
