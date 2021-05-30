@@ -161,7 +161,13 @@ export default function Listing(options) {
                         <p className="fs10">Material: {product.material}</p>
                         <p style={{ height: '70px' }} className="fs10">Description: {product.description}</p>
                         <p className="price">Price{product.price}</p>
-                        <span><Mui.Button variant="outlined" color="primary" onClick={(e) => add(product, 'add')}>Add</Mui.Button><Mui.Button variant="outlined" color="secondary" onClick={(e) => remove(product, 'remove')}>Remove</Mui.Button></span>
+                        <span>
+
+                            <Mui.Button variant="outlined" color="primary" onClick={(e) => add(product, 'add')}>
+                                {(counter.includes(product.id)) ? '+1' : 'Add'}
+                            </Mui.Button>
+                            <Mui.Button disabled={counter.includes(product.id) < 1 ? true : false} variant="outlined" color="secondary" onClick={(e) => remove(product, 'remove')}>Remove</Mui.Button>
+                        </span>
                     </div>
                 ))}
 
