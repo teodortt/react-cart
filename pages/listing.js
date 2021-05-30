@@ -49,6 +49,8 @@ export default function Listing(options) {
 
     useEffect(() => {
         getAll();
+        console.log('1');
+
     }, [added, removed])
 
     function getAll() {
@@ -65,6 +67,7 @@ export default function Listing(options) {
     }
 
     function add(product, add) {
+        console.log('2');
 
         //how many times is added 
         setIncrement(increment + 1);
@@ -151,7 +154,7 @@ export default function Listing(options) {
                 <div className="msgr">Removed successfully!</div>
             </Mui.Snackbar>
 
-            <p className="p-5 mx-auto text-center">Added (counter): {increment}</p>
+            <p className="p-3 mx-auto text-center">Counter (how many times is clicked "Add"): {increment}</p>
 
             <div className="flex-wrapper pt-5">
 
